@@ -21,12 +21,18 @@ public class PrimitiveTypeTester {
         System.out.println(dn2*1000);
 
         long nn = n; // implicit cast
-        // int n3 = nn;
+        int n3 = (int) nn; // explicit cast
         double dd = nn;
-        // long ll = dd;
+        long ll = (long) dd;
 
+        /*
 
+        PEMDAS
 
+         */
+
+        System.out.println(7.0/4.0);
+        System.out.println(7/4);
 
     }
 

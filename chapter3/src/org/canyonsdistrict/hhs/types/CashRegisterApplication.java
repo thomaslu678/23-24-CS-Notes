@@ -10,7 +10,10 @@ public class CashRegisterApplication {
         register.addItem(0.75);
 
         register.acceptPayment(8, 5, 30, 4, 50);
-        System.out.printf("Change you get: ", register.giveChange());
+
+        System.out.printf("Average amount: %.2f", register.getAverage());
+
+        System.out.printf("Change you get: %.2f", register.getChange());
 
     }
 

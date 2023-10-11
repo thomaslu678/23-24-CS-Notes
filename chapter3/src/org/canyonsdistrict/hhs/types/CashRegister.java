@@ -7,16 +7,18 @@ public class CashRegister {
     public static final double NICKEL_VALUE = 0.05;
     public static final double PENNY_VALUE = .01;
 
-    private double purchase;
+    private double purchaseAmount;
     private double payment;
+    private int count;
 
     public CashRegister() {
-        purchase = 0;
+        purchaseAmount = 0;
         payment = 0;
+        count = 0;
     }
 
     public void addItem(double amount){
-        purchase += amount;
+        purchaseAmount += amount;
     }
 
     public void acceptPayment(int dollars, int quarters, int dimes, int nickels, int pennies){
@@ -25,13 +27,20 @@ public class CashRegister {
 
     }
 
-    public double giveChange(){
-
-        double change = payment - purchase;
-        purchase = 0;
+    public double getChange(){
+        double change = payment - purchaseAmount;
+        purchaseAmount = 0;
         payment = 0;
         return change;
+    }
 
+    public void scan(double price){
+        purchaseAmount += price;
+        count++; //unary operator
+    }
+
+    public double getAverage(){
+        return purchaseAmount/count;
     }
 
 
