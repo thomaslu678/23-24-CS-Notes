@@ -10,10 +10,23 @@ public class CashRegisterApplication {
         register.addItem(0.75);
 
         register.acceptPayment(8, 5, 30, 4, 50);
+        var amountText = "Average amount";
+        var changeText = "Change amount";
 
-        System.out.printf("Average amount: %.2f", register.getAverage());
+        System.out.printf("%-20s$%.2f\n", amountText, register.getAverage());
 
-        System.out.printf("Change you get: %.2f", register.getChange());
+        System.out.printf("%-20s$%.2f", changeText, register.getChange());
+
+        /*
+
+        Formatting for strings
+
+        %s - strings
+        %d - whole number
+        %f - floating point
+
+
+         */
 
     }
 
