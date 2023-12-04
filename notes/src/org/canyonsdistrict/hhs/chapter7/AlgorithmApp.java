@@ -9,7 +9,7 @@ public class AlgorithmApp {
     public static void main(String[] args) {
         int[] values = new int[20];
         fillArray(values);
-        printArray(values, ' ', );
+        // printArray(values, ' ', );
 
         var sum = getSum(values);
         System.out.printf("The sum is %d\n", sum);
@@ -32,7 +32,27 @@ public class AlgorithmApp {
         count = removeElement(values, 4, values.length);
         printArray(values, ' ', count);
 
+        swap(values, 0, count - 1);
+        printArray(values, ' ', count);
 
+        int[] values2 = new int[values.length];
+        copy(values,values2, count);
+        printArray(values2, ' ', count);
+
+
+    }
+
+    private static void swap(int[] values, int first, int second) {
+        var temp = values[first];
+        values[first] = values[second];
+        values[second] = temp;
+    }
+
+    private static void copy(int[] values, int[] values2, int count) {
+
+        for (int i = 0; i < count; i++) {
+            values2[i] = values[i];
+        }
 
     }
 
