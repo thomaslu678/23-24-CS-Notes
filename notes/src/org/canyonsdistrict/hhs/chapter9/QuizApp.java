@@ -7,39 +7,31 @@ public class QuizApp {
     public static void main(String[] args) {
 
         Scanner in = new Scanner(System.in);
-        Question question = new Question();
+        Question question = new Question("What's the meaning of life?", "42");
 
-        question.setQuestion("What is the meaning of life?");
-        question.setAnswer("42");
+        askQuestionAndCheckAnswer(in, question);
 
-        System.out.print(question.getQuestion());
-        System.out.print("Your answer: ");
-
-        if (question.checkAnswer(in.next())) {
-            System.out.println("You got that right!");
-        }
-        else {
-            System.out.println("You got it wrong :(");
-        }
-
-        ChoiceQuestion question2 = new ChoiceQuestion();
-        question2.setQuestion("Which of the following was a US president?");
+        ChoiceQuestion question2 = new ChoiceQuestion("Which of the following was a US president?", "Obama");
         question2.addChoice("Lucas", false);
         question2.addChoice("Me", false);
         question2.addChoice("Jack the Ripper", false);
         question2.addChoice("Obama", true);
 
-        System.out.println(question2.getQuestion());
-        String response = in.nextLine();
+        askQuestionAndCheckAnswer(in, question2);
 
-        if (question2.checkAnswer(response)) {
-            System.out.println("Correct!");
+    }
+
+    private static void askQuestionAndCheckAnswer(Scanner in, Question question) {
+        System.out.print(question.getQuestion());
+        System.out.print("Your answer: ");
+        var response = in.nextLine();
+
+        if (question.checkAnswer(response)) {
+            System.out.println("You got that right!");
         }
         else {
-            System.out.println("Incorrect.");
+            System.out.println("You got it wrong :(");
         }
-
-
     }
 
 }

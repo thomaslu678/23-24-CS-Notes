@@ -7,9 +7,16 @@ public class ChoiceQuestion extends Question{
 
     private List<String> choices;
 
-    public ChoiceQuestion() {
+    public ChoiceQuestion(String question, String answer) {
+        super(question, answer);
         choices = new ArrayList<>();
     }
+    /*
+    
+    lol its the coode with me feature
+    used it in coding and programming fbla
+
+     */
 
     public void addChoice(String choice, boolean correct) {
         choices.add(choice);
