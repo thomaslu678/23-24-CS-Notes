@@ -9,7 +9,7 @@ public class QuizApp {
         Scanner in = new Scanner(System.in);
         Question question = new Question("What's the meaning of life?", "42");
 
-        askQuestionAndCheckAnswer(in, question);
+        askQuestionAndCheckAnswer(question, in);
 
         ChoiceQuestion question2 = new ChoiceQuestion("Which of the following was a US president?", "Obama");
         question2.addChoice("Lucas", false);
@@ -17,11 +17,11 @@ public class QuizApp {
         question2.addChoice("Jack the Ripper", false);
         question2.addChoice("Obama", true);
 
-        askQuestionAndCheckAnswer(in, question2);
+        askQuestionAndCheckAnswer(question2, in);
 
     }
 
-    private static void askQuestionAndCheckAnswer(Scanner in, Question question) {
+    private static void askQuestionAndCheckAnswer(Question question, Scanner in) {
         System.out.print(question.getQuestion());
         System.out.print("Your answer: ");
         var response = in.nextLine();
