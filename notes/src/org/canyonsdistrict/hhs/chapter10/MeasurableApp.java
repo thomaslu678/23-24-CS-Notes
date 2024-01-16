@@ -1,5 +1,7 @@
 package org.canyonsdistrict.hhs.chapter10;
 
+import java.util.Arrays;
+
 public class MeasurableApp {
 
     public static void main(String[] args) {
@@ -29,7 +31,18 @@ public class MeasurableApp {
 
         System.out.printf("Unit: %s", Measurable.UNIT);
 
+        for (var account : accounts) {
 
+            if (account instanceof BankAccount acct) {
+                acct.deposit(100);
+                System.out.printf("%.2f\n", acct.getBalance());
+            }
+
+        }
+
+        System.out.println(Arrays.toString(accounts));
+        Arrays.sort(accounts);
+        System.out.println(Arrays.toString(accounts));
 
     }
 

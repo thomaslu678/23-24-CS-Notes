@@ -1,6 +1,6 @@
 package org.canyonsdistrict.hhs.chapter10;
 
-public class BankAccount implements Measurable {
+public class BankAccount implements Measurable, Comparable{
 
     private double balance;
 
@@ -10,6 +10,24 @@ public class BankAccount implements Measurable {
 
     public double getMeasure() {
         return balance;
+    }
+
+    public void deposit(double amount) {
+        balance += amount;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        var other = (BankAccount) o;
+
+        if (balance < other.balance) {
+            return -1;
+        }
+
     }
 
 //    public String getMeasureValueType() {
