@@ -1,4 +1,4 @@
-package org.canyonsdistrict.hhs.chapter10;
+package org.canyonsdistrict.hhs.chapter10.interfaces;
 
 import java.util.Arrays;
 
