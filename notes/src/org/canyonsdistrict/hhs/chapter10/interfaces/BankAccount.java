@@ -28,6 +28,8 @@ public class BankAccount implements Measurable, Comparable{
             return -1;
         }
 
+        return 0;
+
     }
 
 //    public String getMeasureValueType() {
