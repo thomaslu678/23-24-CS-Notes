@@ -3,7 +3,6 @@ package org.canyonsdistrict.hhs.chapter11;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.util.Stack;
 
 public class WordApp {
 
@@ -11,7 +10,18 @@ public class WordApp {
 
         var inputFile = new File("files/words.txt");
 
-        var in = new Scanner(inputFile);
+        Scanner in;
+
+        try {
+            in = new Scanner(inputFile);
+        }
+        catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+            return;
+        }
+
+
+
         while (in.hasNext()) {
             var word = in.next();
             System.out.println("'" + word + "'");

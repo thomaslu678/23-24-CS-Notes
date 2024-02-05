@@ -8,7 +8,7 @@ import java.util.Stack;
 
 public class NumberApp {
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) {
 
         var console = new Scanner(System.in);
         System.out.print("Input filename: ");
@@ -17,22 +17,23 @@ public class NumberApp {
         var outputFileName = console.nextLine();
 
         var inputFile = new File(inputFileName);
-        var fileScanner = new Scanner(inputFile);
-        var out = new PrintWriter(outputFileName);
 
-        double total = 0;
-        while (fileScanner.hasNextDouble()) {
-            var value = fileScanner.nextDouble();
-            total += value;
-            out.printf("%10.2f\n", value);
+        try (var fileScanner = new Scanner(inputFile);) {
+
+            var out = new PrintWriter(outputFileName);
+
+            double total = 0;
+            while (fileScanner.hasNextDouble()) {
+                var value = fileScanner.nextDouble();
+                total += value;
+                out.printf("%10.2f\n", value);
+            }
+
+            out.printf("Total: %10.2f", total);
+
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
         }
-
-        out.printf("Total: %10.2f", total);
-        //File.separator
-
-        fileScanner.close();
-        out.close();
-
     }
 
 }
