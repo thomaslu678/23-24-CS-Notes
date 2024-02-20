@@ -9,7 +9,30 @@ public class Evaluator {
     }
 
     public int getExpressionValue() {
-        return 0;
+
+        int value = getTermValue();
+        boolean done = false;
+        while (!done) {
+            var peek = tokenizer.peek();
+            if("+".equals(peek) || "-".equals(peek)) {
+                tokenizer.nextToken();
+                int value2 = getTermValue();
+
+                if ("+".equals(peek)) {
+                    value = value + value2;
+                }
+                else {
+                    value = value - value2;
+                }
+
+            }
+            else {
+                done = true;
+            }
+        }
+
+        return value;
+
     }
 
     public int getTermValue() {
@@ -34,13 +57,16 @@ public class Evaluator {
     }
 
     public int getFactorValue() {
-        int value;
+        int value = 0;
         var peek = tokenizer.peek();
         if ("(".equals(peek)) {
             tokenizer.nextToken(); // throw away (
             value = getExpressionValue(); // recursive call
             tokenizer.nextToken();
         }
+
+        return value;
+
     }
 
 }
